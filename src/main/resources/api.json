@@ -1,8 +1,8 @@
 {
-  "id": "Authentication",
+  "id": "Security",
   "package": "com.zenerick",
-  "name": "Reverside Authentication API",
-  "description": "API for OAuth2 authentication",
+  "name": "Reverside Security API",
+  "description": "API for Authentication & Authorization",
   "developer": {
     "name": "Reverside Innovation Lab",
     "email": "manmay.mohanty@reverside.co.za",

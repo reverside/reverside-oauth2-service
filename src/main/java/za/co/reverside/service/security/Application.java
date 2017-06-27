@@ -1,4 +1,4 @@
-package za.co.reverside.service.oauth2;
+package za.co.reverside.service.security;
 
 import com.zenerick.service.oauth2.Service;
 import org.springframework.boot.SpringApplication;
