@@ -1,7 +1,7 @@
 {
   "id": "Security",
   "package": "com.zenerick",
-  "name": "Reverside Security API",
+  "name": "Reverside Security Service",
   "description": "API for Authentication & Authorization",
   "developer": {
     "name": "Reverside Innovation Lab",

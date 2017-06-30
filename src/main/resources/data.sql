@@ -3,26 +3,41 @@ insert into grant_types(grant) values('implicit');
 insert into grant_types(grant) values('authorization_code');
 insert into grant_types(grant) values('client_credentials');
 
-insert into authorities(role) values('admin');
-insert into authorities(role) values('user');
-insert into authorities(role) values('system');
-insert into authorities(role) values('developer');
+insert into authorities(role) values('USER');
+insert into authorities(role) values('ADMIN');
+insert into authorities(role) values('SYSTEM');
+insert into authorities(role) values('DEVELOPER');
 
-insert into authorities(role) values('notification_user');
-insert into authorities(role) values('notification_admin');
+insert into authorities(role) values('CONNECT_ADMIN');
+insert into authorities(role) values('CONNECT_USER');
+insert into authorities(role) values('CALENDAR_ADMIN');
 
-insert into authorities(role) values('calendar_admin');
+insert into users(id, name, password, enabled) values(0, 'admin', 'secret', true);
+insert into users_authorities(user_id, authorities_role) values(0, 'ADMIN');
+insert into users_authorities(user_id, authorities_role) values(0, 'CONNECT_USER');
+insert into users_authorities(user_id, authorities_role) values(0, 'CONNECT_ADMIN');
+insert into users_authorities(user_id, authorities_role) values(0, 'CALENDAR_ADMIN');
 
-insert into users(id, password, enabled) values('admin', 'admin', true);
-insert into users_authorities(user_id, authorities_role) values('admin', 'admin');
+insert into clients(id, name, secret, owner, access_token_timeout, refresh_token_timeout) values(0, 'reverside-service-explorer', '0000000000000', 'admin', 3600, -1);
+insert into clients_grant_types(client_id, grant_types_grant) values(0, 'implicit');
+insert into clients_authorities(client_id, authorities_role)  values(0, 'SYSTEM');
 
-insert into users(id, password, enabled) values('manmay.mohanty@reverside.co.za', 'Password123', true);
-insert into users_authorities(user_id, authorities_role) values('manmay.mohanty@reverside.co.za', 'developer');
-insert into users_authorities(user_id, authorities_role) values('manmay.mohanty@reverside.co.za', 'notification_user');
+insert into users(id, name, password, enabled) values(1, 'manmay.mohanty@reverside.co.za', 'Password123', true);
+insert into users_authorities(user_id, authorities_role) values(1, 'USER');
+insert into users_authorities(user_id, authorities_role) values(1, 'CONNECT_USER');
+
+insert into users(id, name, password, enabled) values(2, 'cresundra.alves@reverside.co.za', 'Password123', true);
+insert into users_authorities(user_id, authorities_role) values(2, 'USER');
+insert into users_authorities(user_id, authorities_role) values(2, 'CONNECT_ADMIN');
+insert into users_authorities(user_id, authorities_role) values(2, 'CALENDAR_ADMIN');
+
+insert into clients(id, name, secret, owner, access_token_timeout, refresh_token_timeout) values(1, 'reverside-calendar-service', '1111111111111', 'manmay.mohanty@reverside.co.za', 3600, -1);
+insert into clients_grant_types(client_id, grant_types_grant) values(1, 'client_credentials');
+insert into clients_authorities(client_id, authorities_role)  values(1, 'SYSTEM');
+insert into clients_authorities(client_id, authorities_role)  values(1, 'CONNECT_USER');
 
 
-insert into clients(id, name, secret, owner, access_token_timeout, refresh_token_timeout) values('b094f68d-623a-4407-b0d2-b43c610b2c5', 'reverside-calendar-service', '1498562418003', 'manmay.mohanty@reverside.co.za', 3600, -1);
-insert into clients_authorities(client_id, authorities_role)  values('b094f68d-623a-4407-b0d2-b43c610b2c5', 'system');
-insert into clients_authorities(client_id, authorities_role)  values('b094f68d-623a-4407-b0d2-b43c610b2c5', 'notification_user');
-insert into clients_authorities(client_id, authorities_role)  values('b094f68d-623a-4407-b0d2-b43c610b2c5', 'calendar_admin');
-insert into clients_grant_types(client_id, grant_types_grant) values('b094f68d-623a-4407-b0d2-b43c610b2c5', 'implicit');
+
+
+
+
