@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-3 col-xs-1"></div>
+        <div class="col-md-4 col-sm-6 col-xs-10">
+            <div class="text-center" style="margin-top: 20px;">
+                <img src="favicon.ico" style="width: 60px; height: 60px;"/>
+                <h3>Reverside</h3>
+            </div>
+            <div>
+                <hr/>
+                <form name="f" th:action="@{/register}" method="post" th:object="${registrationForm}">
+                    <div class="form-group">
+                        <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" th:field="*{firstName}"/>
+                        <div class="text-right text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" th:field="*{lastName}"/>
+                        <div class="text-right text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="email" name="email" class="form-control" placeholder="Email" th:field="*{email}"/>
+                        <div class="text-right text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" th:field="*{password}"/>
+                        <div class="text-right text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success form-control">Register</button>
+                    </div>
+                </form>
+                <hr/>
+            </div>
+            <div class="text-right">
+                Existing User ? <a href="/login" class="btn-link">Login Here</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
